@@ -33,10 +33,15 @@ Route::middleware('auth', 'verified')->group(function () {
 //Admin Routes
 Route::middleware('auth', 'verified', 'role:admin')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+    Route::get('/admin/profile', [AdminController::class, 'profile'])->name('admin.profile');
 });
+//Admin Routes without login
+Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
+Route::get('/admin/register', [AdminController::class, 'register'])->name('admin.register');
 
 // Vendor Routes
-    //with login
+//with login
 Route::middleware('auth', 'verified','role:vendor')->group(function () {
     Route::get('/vendor/dashboard', [VendorController::class, 'index'])->name('vendor.dashboard');
     
