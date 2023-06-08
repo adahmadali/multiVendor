@@ -35,6 +35,9 @@ Route::middleware('auth', 'verified', 'role:admin')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
     Route::get('/admin/profile', [AdminController::class, 'profile'])->name('admin.profile');
+    Route::post('/admin/profile/update/{id}', [AdminController::class, 'updateProfile'])->name('admin.profile.update');
+    Route::get('/admin/changePassword', [AdminController::class, 'changePassword'])->name('admin.change.password');
+    Route::post('/admin/update/password', [AdminController::class, 'updatePassword'])->name('admin.update.password');
 });
 //Admin Routes without login
 Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');

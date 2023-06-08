@@ -38,7 +38,7 @@
 											<div class="mt-3">
 												<h4>{{ $adminInfo->name}}</h4>
 												<p class="text-secondary mb-1">{{ $adminInfo->email}}</p>
-												<p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+												<p class="text-muted font-size-sm">{{ $adminInfo->address}}</p>
 												<button class="btn btn-primary">Follow</button>
 												<button class="btn btn-outline-primary">Message</button>
 											</div>
@@ -72,52 +72,57 @@
 							<div class="col-lg-8">
 								<div class="card">
 									<div class="card-body">
-										<div class="row mb-3">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Full Name</h6>
+										<form action="{{route('admin.profile.update',$adminInfo->id)}}" method="post" enctype="multipart/form-data">
+											@csrf
+											<div class="row mb-3">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Full Name</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input type="text" name="name" class="form-control" value="{{ $adminInfo->name}}" />
+												</div>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="John Doe" />
+											<div class="row mb-3">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Email</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input type="email" name="email" class="form-control" value="{{ $adminInfo->email}}" />
+												</div>
 											</div>
-										</div>
-										<div class="row mb-3">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Email</h6>
+											<div class="row mb-3">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Phone</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input type="text" name="phone" class="form-control" value="{{ $adminInfo->phone}}" />
+												</div>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="john@example.com" />
+											<div class="row mb-3">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Address</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input type="text" name="address" class="form-control" value="{{ $adminInfo->address}}" />
+												</div>
 											</div>
-										</div>
-										<div class="row mb-3">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Phone</h6>
+											<div class="row mb-3">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Picture</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input type="file" name="User_pic" id="" class="form-control image">
+													<img  height="150" width="150" class="imagePre mt-2"
+													src="{{(!empty($adminInfo->User_pic))? asset('uploads/admin/'.$adminInfo->User_pic) : asset('uploads/admin/admin.png') }}" alt="">
+												</div>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="(239) 816-9029" />
+											<div class="row">
+												<div class="col-sm-3"></div>
+												<div class="col-sm-9 text-secondary">
+													<input type="submit" class="btn btn-primary px-4" value="Save Changes" />
+												</div>
 											</div>
-										</div>
-										<div class="row mb-3">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Mobile</h6>
-											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="(320) 380-4539" />
-											</div>
-										</div>
-										<div class="row mb-3">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Address</h6>
-											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="Bay Area, San Francisco, CA" />
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-3"></div>
-											<div class="col-sm-9 text-secondary">
-												<input type="button" class="btn btn-primary px-4" value="Save Changes" />
-											</div>
-										</div>
+										</form>
 									</div>
 								</div>
 								<div class="row">

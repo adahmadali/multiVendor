@@ -12,6 +12,7 @@
 	<script src="{{asset('backend')}}/assets/plugins/sparkline-charts/jquery.sparkline.min.js"></script>
 	<script src="{{asset('backend')}}/assets/plugins/jquery-knob/excanvas.js"></script>
 	<script src="{{asset('backend')}}/assets/plugins/jquery-knob/jquery.knob.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 	  <script>
 		  $(function() {
 			  $(".knob").knob();
@@ -20,3 +21,46 @@
 	  <script src="{{asset('backend')}}/assets/js/index.js"></script>
 	<!--app JS-->
 	<script src="{{asset('backend')}}/assets/js/app.js"></script>
+
+
+@if(Session::has('message'))
+	<script>
+	var type = "{{Session::get('type')}}";
+	switch(type){
+		case "info":
+			toastr.info("{{ Session::get('message') }}");
+			break;
+		case "error":
+			toastr.error("{{ Session::get('message') }}");
+			break;
+		case "warning":
+			toastr.warning("{{ Session::get('message') }}");
+			break;
+		case "success":
+			toastr.success("{{ Session::get('message') }}");
+			break;
+		
+	}
+	</script>
+@endif
+
+<script>
+	jQuery(document).ready(function(){
+		jQuery('.image').change('.image',function(){
+			let reader = new FileReader();
+			var file = document.querySelector('.image').files[0];
+			reader.onload = function(e){
+				jQuery('.imagePre').attr('src',e.target.result);
+			}
+			reader.readAsDataURL(file);
+		});
+	});
+
+
+</script>
+
+
+
+
+
+

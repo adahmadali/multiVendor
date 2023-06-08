@@ -110,12 +110,12 @@
 											</div>
 										</a>
 										<a class="dropdown-item" href="javascript:;">
-			<div class="d-flex align-items-center">
-			<div class="notify bg-light-info text-info"><i class="bx bx-home-circle"></i>
+				<div class="d-flex align-items-center">
+				<div class="notify bg-light-info text-info"><i class="bx bx-home-circle"></i>
 			</div>
 			<div class="flex-grow-1">
 				<h6 class="msg-name">New Product Approved <span
-			class="msg-time float-end">2 hrs ago</span></h6>
+				class="msg-time float-end">2 hrs ago</span></h6>
 				<p class="msg-info">Your new product has approved</p>
 			</div>
 			</div>
@@ -338,6 +338,8 @@
 							<li><a class="dropdown-item" href="javascript:;"><i class='bx bx-home-circle'></i><span>Dashboard</span></a>
 							</li>
 							<li><a class="dropdown-item" href="javascript:;"><i class='bx bx-dollar-circle'></i><span>Earnings</span></a>
+							</li>
+							<li><a class="dropdown-item" href="{{route('admin.change.password')}}"><i class='bx bx-dollar-circle'></i><span>Change Password</span></a>
 							</li>
 							<li><a class="dropdown-item" href="javascript:;"><i class='bx bx-download'></i><span>Downloads</span></a>
 							</li>
