@@ -48,7 +48,11 @@ class AdminController extends Controller
             $admin->User_pic = $customImageName;
         }
         $admin->save();
-        return back();
+        $notice = array(
+            'type'=>'success',
+            'message'=>'Update profile successfully',
+        );
+        return back()->with($notice);
     }
     function changePassword(){
         return view('admin.changePassword');

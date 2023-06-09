@@ -47,11 +47,18 @@ Route::get('/admin/register', [AdminController::class, 'register'])->name('admin
 //with login
 Route::middleware('auth', 'verified','role:vendor')->group(function () {
     Route::get('/vendor/dashboard', [VendorController::class, 'index'])->name('vendor.dashboard');
+    Route::post('/vendor/logout', [VendorController::class, 'logout'])->name('vendor.logout');
+    Route::get('/vendor/profile', [VendorController::class, 'profile'])->name('vendor.profile');
+    Route::post('/vendor/profile/update/{id}', [VendorController::class, 'updateProfile'])->name('vendor.profile.update');
+    Route::get('/vendor/changePassword', [VendorController::class, 'changePassword'])->name('vendor.change.password');
+    Route::post('/vendor/update/password', [VendorController::class, 'updatePassword'])->name('vendor.update.password');
     
 });
 
+//without login
+Route::get('/vendor/login', [VendorController::class, 'login'])->name('vendor.login');
+Route::get('/vendor/register', [VendorController::class, 'register'])->name('vendor.register');
 
-    //without login
 
 //user routes
      //with login
