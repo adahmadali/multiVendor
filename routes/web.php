@@ -5,6 +5,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Vendor\VendorController;
 
+//frontend all controller
+use App\Http\Controllers\Frontend\SocialliteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +26,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+//
+Route::get('/socialite/create', [SocialliteController::class, 'create'])->name('socialite.create');
+Route::get('/sociallogin/store', [SocialliteController::class, 'login'])->name('socialite.store');
+
+
 
 Route::middleware('auth', 'verified')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -17,11 +17,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
-            $table->string('User_pic')->nullable();
+            $table->text('User_pic')->nullable();
             $table->string('shop_name')->nullable();
             $table->string('vendor_join_date')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->string('socialId')->nullable();
             $table->enum('role',['admin','user','vendor'])->default('user');
             $table->enum('status',['active','inactive'])->default('active');
 

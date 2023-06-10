@@ -30,5 +30,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'google' => [
+        'client_id' => '809862739547-m45sag7j8rh41v54rtkhcl7kvof2u170.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => 'https://127.0.0.1:8000/sociallogin/store',
+    ],
 
 ];
